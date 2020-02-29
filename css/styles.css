@@ -126,6 +126,15 @@ nav h1 a {
   color: #6e5773;
   text-decoration: none;
 }
+.map-offline-mode {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+.map-offline-mode div {
+  margin: 20px;
+}
 /* ====================== Restaurant Filtering ====================== */
 #filter-list-container {
   width: 100%;
@@ -193,7 +202,7 @@ nav h1 a {
   min-height: 248px;
   min-width: 100%;
 }
-#restaurants-list li h1 {
+#restaurants-list li h2 {
   color: #6e5773;
   font-family: Arial,sans-serif;
   font-size: 14pt;
