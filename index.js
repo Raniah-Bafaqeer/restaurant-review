@@ -1,5 +1,5 @@
-let staticCacheName = 'restaurant-cache-v1';
-
+let staticCacheName = 'restaurant-review-v1.0';
+//TODO: cache requests to all of the site’s assets
 self.addEventListener('install', function(event) {
 	event.waitUntil(
 		caches.open(staticCacheName).then(function(cache) {
@@ -23,7 +23,6 @@ self.addEventListener('install', function(event) {
 				'./img/9.jpg',
 				'./img/10.jpg',
 				'./img/icon.jpg'
-		
 			]);
 		})
 	);
@@ -44,6 +43,14 @@ self.addEventListener('activate', function(event) {
 })
 
 self.addEventListener('fetch', function(event) {
+	//TODO:  handle all the restaurant pages and responde in offline mode
+	const requestUrl = new URL(event.request.url);
+	if(requestUrl.origin === location.origin){
+		if (requestUrl.pathname.startsWith('/restaurant.html')) {
+			event.respondWith(caches.match('/restaurant.html'));
+			return; 
+		}
+	}
 	event.respondWith(
 		caches.match(event.request)
 		.then(function(response) {

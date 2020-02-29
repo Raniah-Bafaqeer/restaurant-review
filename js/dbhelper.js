@@ -166,6 +166,11 @@ class DBHelper {
       marker.addTo(newMap);
     return marker;
   } 
+  static mapOfflineMode() {
+    const map = document.getElementById('map');
+    map.className = "map-offline-mode";
+    map.innerHTML = `<div >There are problems loading Maps <br/> Please, check the network availability</div>`;
+  }
   /* static mapMarkerForRestaurant(restaurant, map) {
     const marker = new google.maps.Marker({
       position: restaurant.latlng,
